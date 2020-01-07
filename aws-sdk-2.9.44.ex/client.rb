@@ -5,7 +5,24 @@ require 'json'
 require "aws-sigv4"
 
 module Aws_sdk_ex
-    class Aws_sdk_ex
+
+
+    def Aws_sdk_ex.hash_to_query(filter)
+        param = filter.collect do |k,v|
+            out = ""
+            if v.kind_of?(Hash)
+              v.each do |kk,vv|
+                out += "#{k}.#{kk}=#{vv}"
+              end
+            else
+              out += "#{k}=#{v}"
+            end
+            out
+            end.join("&")    
+        return param
+    end    
+
+    class Client_ex
 
         attr_reader :service_name
         attr_reader :endpoint

@@ -1,0 +1,2 @@
+gem install activesupport
+gem install aws-sigv4

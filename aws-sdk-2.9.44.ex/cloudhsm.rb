@@ -1,6 +1,6 @@
 require_relative "client"
 module Aws_sdk_ex
-    class CloudHSMV2 < Aws_sdk_ex
+    class CloudHSMV2 < Client_ex
 
         def initialize(region,aws_key_id,secret_access_key)
             @service_name = "cloudhsm"
